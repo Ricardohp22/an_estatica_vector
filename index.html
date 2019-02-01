@@ -1,0 +1,98 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <!--<script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>-->
+    <!--<script src="https://cdn.rawgit.com/elbobo/aframe-multisrc-component/b6d23310/dist/0.3/aframe-multisrc-component.js"></script>-->
+    <script src="scripts/multisrc.js"></script>
+    <script src="scripts/marker.js"></script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+            <a-assets>
+                <img id="piso" src="images/piso.png">
+                <img id="pared" src="images/pared.png">
+                <a-asset-item id="robot" src="modelos/robot/scene.gltf"></a-asset-item>
+            </a-assets>
+            
+            
+            <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
+                <a-entity id="escenaId" position="0 0 0">
+                    <a-entity gltf-model="#robot" position="0 .3 0" scale=".005 .005 .005" rotation="0 135 0" animation-mixer></a-entity>
+                    <a-box id="moduloId"  scale="1 .3 1" rotation="0 0 0" position="0 0 0" visible="true"
+                    multisrc="srcs:#pared,#pared,#piso,#pared,#pared,#pared"
+                    >
+                    </a-box>
+                    <!--<a-box position="-1.5 0 .48" scale=".2 .2 .2" material="src: images/m.png;"></a-box>
+                    <a-box position="-1.2 0 .7" scale=".2 .2 .2" material="src: images/a.png;"></a-box>
+                    <a-box position="-.9 0 .85" scale=".2 .2 .2" material="src: images/r.png;"></a-box>
+                    <a-box position="-.6 0 .95" scale=".2 .2 .2" material="src: images/k.png;"></a-box>
+                    <a-box position="-.3 0 .99" scale=".2 .2 .2" material="src: images/e.png;"></a-box>
+                    <a-box position="0 0 .99" scale=".2 .2 .2" material="src: images/t.png;"></a-box>
+                    <a-box position=".3 0 .95" scale=".2 .2 .2" material="src: images/i.png;"></a-box>
+                    <a-box position=".6 0 .85" scale=".2 .2 .2" material="src: images/n.png;"></a-box>
+                    <a-box position=".9 0 .7" scale=".2 .2 .2" material="src: images/g.png;"></a-box>
+                    <a-box position="1.2 0 .48" scale=".2 .2 .2" material="src: images/signo.png;"></a-box>-->
+                    <a-box position="-1.5 0 .8" scale=".2 .2 .2" material="src: images/m.png;"></a-box>
+                    <a-box position="-1.2 0 1" scale=".2 .2 .2" material="src: images/a.png;"></a-box>
+                    <a-box position="-.9 0 .8" scale=".2 .2 .2" material="src: images/r.png;"></a-box>
+                    <a-box position="-.6 0 1" scale=".2 .2 .2" material="src: images/k.png;"></a-box>
+                    <a-box position="-.3 0 .8" scale=".2 .2 .2" material="src: images/e.png;"></a-box>
+                    <a-box position="0 0 1" scale=".2 .2 .2" material="src: images/t.png;"></a-box>
+                    <a-box position=".3 0 .8" scale=".2 .2 .2" material="src: images/i.png;"></a-box>
+                    <a-box position=".6 0 1" scale=".2 .2 .2" material="src: images/n.png;"></a-box>
+                    <a-box position=".9 0 .8" scale=".2 .2 .2" material="src: images/g.png;"></a-box>
+                    <a-box position="1.2 0 1" scale=".2 .2 .2" material="src: images/signo.png;"></a-box>
+
+                    
+                    
+            </a-entity>
+            </a-marker>
+
+            <a-box  position="-.05 -.15 -.5" scale=".03 .03 .03" material="src: images/botonVec.png;" opacity=".6">
+                <a-animation
+                attribute="rotation"
+                dur="5000"
+                to="360 360 0"
+                easing="linear"
+                repeat="indefinite"></a-animation>
+            </a-box>
+            <a-plane id="botonVecId" position="-0.031 -0.035 -.1" width=".06" height=".02" opacity="0"
+            ></a-plane>
+
+
+            <a-box  position=".05 -.15 -.5" scale=".03 .03 .03" material="src: images/botonWa.png;" opacity=".6">
+                <a-animation
+                attribute="rotation"
+                dur="5000"
+                to="360 360 0"
+                easing="linear"
+                repeat="indefinite"></a-animation>
+            </a-box>
+            <a-plane id="botonWaId" position="0.031 -0.035 -.1" width=".06" height=".02" opacity="0"
+            ></a-plane>
+            <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+            <a-entity camera></a-entity>
+        </a-scene>
+        
+    </body>
+
+    <script>
+        var botonV = document.getElementById("botonVecId");
+        var botonW = document.getElementById("botonWaId");
+        
+        botonW.addEventListener("click", function(e)
+        {
+            window.open("https://api.whatsapp.com/send?phone=+5215544602389&text=Hola!%20me%20interesa%20el%20marketing%20con%20Realidad%20Aumentada");
+        });
+        botonV.addEventListener("click", function(e)
+        {
+            window.open("https://www.vectorid.mx/");
+        });
+    </script>
+</html>
