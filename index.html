@@ -16,6 +16,7 @@
             <a-assets>
                 <img id="piso" src="images/piso.png">
                 <img id="pared" src="images/pared.png">
+                <img id="mensaje" src="images/mensaje.png">
                 <a-asset-item id="robot" src="modelos/robot/scene.gltf"></a-asset-item>
             </a-assets>
             
@@ -29,8 +30,10 @@
                     >
                     </a-box>-->
                     
-                    <a-cylinder id="moduloId"  height=".5" radius=".5" rotation="0 90 0" position="0 0 0" visible="true"
+                    <a-cylinder id="moduloId"  height=".2" radius=".5" rotation="0 90 0" position="0 .5 0" visible="true"
                     multisrc="srcs:#pared,#piso,#pared"></a-cylinder>
+                    <a-cylinder id="moduloId"  height=".3" radius=".5" rotation="0 90 0" position="0 .25 0" visible="true"
+                    multisrc="srcs:#mensaje,#piso,#mensaje"></a-cylinder>
                     <!--<a-box position="-1.5 0 .8" scale=".2 .2 .2" material="src: images/m.png;"></a-box>
                     <a-box position="-1.2 0 1" scale=".2 .2 .2" material="src: images/a.png;"></a-box>
                     <a-box position="-.9 0 .8" scale=".2 .2 .2" material="src: images/r.png;"></a-box>
