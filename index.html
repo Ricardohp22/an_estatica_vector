@@ -23,10 +23,13 @@
             <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='marketing-marker.patt'>
                 <a-entity id="escenaId" position="0 0 0">
                     <a-entity gltf-model="#robot" position="0 .5 0" scale=".05 .05 .05" rotation="0 0 0" animation-mixer></a-entity>
-                    <a-box id="moduloId"  scale="1 .5 1" rotation="0 0 0" position="0 0 0" visible="true"
+                    
+                    <!--<a-box id="moduloId"  scale="1 .5 1" rotation="0 0 0" position="0 0 0" visible="true"
                     multisrc="srcs:#pared,#pared,#piso,#pared,#pared,#pared"
                     >
-                    </a-box>
+                    </a-box>-->
+                    <a-cylinder id="moduloId"  scale="1 .5 1" rotation="0 0 0" position="0 0 0" visible="true"
+                    material="src:#piso; "></a-cylinder>
                     <!--<a-box position="-1.5 0 .8" scale=".2 .2 .2" material="src: images/m.png;"></a-box>
                     <a-box position="-1.2 0 1" scale=".2 .2 .2" material="src: images/a.png;"></a-box>
                     <a-box position="-.9 0 .8" scale=".2 .2 .2" material="src: images/r.png;"></a-box>
