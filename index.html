@@ -21,7 +21,7 @@
             
             
             <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" type='pattern' url='marketing-marker.patt'>
-                <a-entity id="escenaId" position="0 0 0" scale=".8 .8 .8">
+                <a-entity id="escenaId" position="0 0 -90" scale=".8 .8 .8">
                     <a-entity gltf-model="#robot" position="0 .5 0" scale=".05 .05 .05" rotation="0 0 0" animation-mixer></a-entity>
                     
                     <!--<a-box id="moduloId"  scale="1 .5 1" rotation="0 0 0" position="0 0 0" visible="true"
@@ -29,7 +29,7 @@
                     >
                     </a-box>-->
                     
-                    <a-cylinder id="moduloId"  height=".5" radius=".8" rotation="0 90 0" position="0 0 0" visible="true"
+                    <a-cylinder id="moduloId"  height=".5" radius=".5" rotation="0 90 0" position="0 0 0" visible="true"
                     multisrc="srcs:#pared,#piso,#pared"></a-cylinder>
                     <!--<a-box position="-1.5 0 .8" scale=".2 .2 .2" material="src: images/m.png;"></a-box>
                     <a-box position="-1.2 0 1" scale=".2 .2 .2" material="src: images/a.png;"></a-box>
@@ -48,14 +48,8 @@
             </a-entity>
             </a-marker>
 
-            <a-sphere  position="-.05 -.15 -.5" scale=".03 .03 .03" material="src: images/botonVec.png;" opacity=".6">
-                <a-animation
-                attribute="rotation"
-                dur="5000"
-                to="360 360 0"
-                easing="linear"
-                repeat="indefinite"></a-animation>
-            </a-sphere>
+            <a-plane id="powered" position="-.003 -.03 -.1" width=".02" height=".006" opacity=".3"
+            material="src: images/powvector.png"></a-plane>
             <a-plane id="botonVecId" position="-0.031 -0.035 -.1" width=".06" height=".02" opacity="0"
             ></a-plane>
 
